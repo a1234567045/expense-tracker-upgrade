@@ -5,9 +5,8 @@ const recordSchema = new Schema({
     type: String, // 資料型別是字串
     required: true // 這是個必填欄位
   },
-  category: String,
-  date: string,
-  amount: string,
-  totalAmount: string,
+  category: { type: String, required: true },
+  date: { type: String, required: true },
+  amount: { type: String, required: true },
 })
 module.exports = mongoose.model('Record', recordSchema)
