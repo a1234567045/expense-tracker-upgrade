@@ -24,7 +24,7 @@ app.set('view engine', 'hbs')
 app.get('/', (req, res) => {
   Record.find()
     .lean()
-    .then(notes => res.render('index', { notes }))
+    .then(records => res.render('index', { records }))
     .catch(error => console.error(error))
 })
 
