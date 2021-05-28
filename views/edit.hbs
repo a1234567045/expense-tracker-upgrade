@@ -1,4 +1,4 @@
-<form action="/records/{{record._id}}/edit" method="POST">
+<form action="/records/{{record._id}}?_method=PUT" method="POST">
   <input type="text" placeholder="name" id="name" name="name" value="{{record.name}}">
   <input type="text" placeholder="date" id="date" name="date" value="{{record.date}}">
   <input type="text" placeholder="category" id="category" name="category" value="{{record.category}}">
