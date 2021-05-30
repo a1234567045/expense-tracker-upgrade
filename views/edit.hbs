@@ -1,8 +1,76 @@
-<form action="/records/{{record._id}}?_method=PUT" method="POST">
+<div class="container new-container mt-3 px-5">
+  <div class="row">
+    <div class="col-12 col-sm3 d-flex justify-content-center align-items-center">*為必填</div>
+    <div class="col-12 col-sm-9 text-center">
+      <h3 class="font-weight-bold m-0">修改支出</h3>
+    </div>
+  </div>
+  <form action="/records/{{ record._id }}?_method=PUT" method="POST">
+    <div class="row form-group mt-4">
+      <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
+        <label for="name" class="col-form-label font-weight-bold">* 名稱：</label>
+      </div>
+      <div class="col-12 col-sm-9">
+        <input type="text" class="form-control" name="name" id="name" placeholder="請輸入名稱" value="{{ record.name }}"
+          required>
+      </div>
+    </div>
+    <div class="row form-group mt-4">
+      <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
+        <label for="text" class="col-form-label font-weight-bold">* 日期：</label>
+      </div>
+      <div class="col-12 col-sm-9">
+        <input type="text" class="form-control" name="date" id="date" placeholder="請輸入日期"
+          pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" title="請輸入西元年-月-日 ex: 2021-05-20" value="{{ record.date }}" required>
+      </div>
+    </div>
+    <div class="row form-group mt-4">
+      <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
+        <label for="category" class="col-form-label font-weight-bold">* 類別：</label>
+      </div>
+      <div class="col-12 col-sm-9">
+        <select class="form-control" name="category" id="category" required>
+          <option disabled>請選擇類別</option>
+          <option value="living" {{#if (eq record.category 'living' )}} selected {{/if}}>家居物業</option>
+          <option value="traffics" {{#if (eq record.category 'traffics' )}} selected {{/if}}>交通出行</option>
+          <option value="entertainment" {{#if (eq record.category 'entertainments' )}} selected {{/if}}>休閒娛樂</option>
+          <option value="meals" {{#if (eq record.category 'meals' )}} selected {{/if}}>餐飲食品</option>
+          <option value="others" {{#if (eq record.category 'others' )}} selected {{/if}}>其他</option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group mt-4">
+      <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
+        <label for="name" class="col-form-label font-weight-bold">* 金額：</label>
+      </div>
+      <div class="col-12 col-sm-9">
+        <input type="number" class="form-control" name="amount" id="amount" value="{{ record.amount }}" min="1"
+          max="100000000" placeholder="請輸入金額 1~100000000" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-9 ml-auto text-center">
+        <a href="/" class="btn btn-secondary">返回</a>
+        <button type="submit" class="btn btn-primary">送出</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+{{!-- <form action="/records/{{record._id}}?_method=PUT" method="POST">
   <input type="text" placeholder="name" id="name" name="name" value="{{record.name}}">
   <input type="text" placeholder="date" id="date" name="date" value="{{record.date}}">
   <input type="text" placeholder="category" id="category" name="category" value="{{record.category}}">
   <input type="text" placeholder="amount" id="amount" name="amount" value="{{record.amount}}">
   <button type="submit">Save</button>
   <a href="/">back</a>
-</form>
+</form> --}}

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "早餐",
+    "category": "meals",
+    "date": "2021/4/6",
+    "amount": "50"
+  },
+  {
+    "name": "捷運",
+    "category": "traffics",
+    "date": "2021/4/6",
+    "amount": "50"
+  },
+  {
+    "name": "晚餐",
+    "category": "meals",
+    "date": "2021/4/6",
+    "amount": "380"
+  },
+  {
+    "name": "電影",
+    "category": "entertainments",
+    "date": "2021/4/8",
+    "amount": "520"
+  },
+  {
+    "name": "湯姆熊",
+    "category": "entertainments",
+    "date": "2021/4/8",
+    "amount": "300"
+  },
+  {
+    "name": "租金",
+    "category": "living",
+    "date": "2021/4/9",
+    "amount": "12000"
+  },
+  {
+    "name": "水電費",
+    "category": "living",
+    "date": "2021/4/9",
+    "amount": "2100"
+  },
+  {
+    "name": "貓飼料",
+    "category": "others",
+    "date": "2021/4/11",
+    "amount": "880"
+  },
+  {
+    "name": "買口罩",
+    "category": "others",
+    "date": "2021/4/12",
+    "amount": "90"
+  }
+]

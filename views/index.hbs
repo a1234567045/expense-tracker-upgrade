@@ -6,16 +6,17 @@
           <a href="./records/new" class="btn btn-outline-info ml-3 mb-3">新增支出</a>
         </div>
         <div class="col-12">
-          <form class="d-flex" name="filter-form" action="/" method="GET">
+          <form class="d-flex" name="filter-form" action="/filter" method="GET">
             <div class="container-fluid form-group filter-dropdown">
-              <select name="filter" class="form-control mx-auto" id="expense-filter" onchange="submit()"
+              <select class="form-control mx-auto" name="filter" id="filter" onchange="submit()"
                 style="cursor: pointer; max-width: 80%;">
-                <option value="selected hidden">支出分類</option>
-                <option value="housewares">家居物業</option>
-                <option value="transportation">交通出行 </option>
-                <option value="entertainment">休閒娛樂</option>
-                <option value="consumption">餐飲食品</option>
-                <option value="others">其他</option>
+                <option value="" {{#if (eq filteredCategory '' )}} selected {{/if}}>全部分類</option>
+                <option value="meals" {{#if (eq filteredCategory 'meals' )}} selected {{/if}}>餐飲食品</option>
+                <option value="traffics" {{#if (eq filteredCategory 'traffics' )}} selected {{/if}}>交通出行 </option>
+                <option value="living" {{#if (eq filteredCategory 'living' )}} selected {{/if}}>家居物業</option>
+                <option value="entertainments" {{#if (eq filteredCategory 'entertainments' )}} selected {{/if}}>休閒娛樂
+                </option>
+                <option value="others" {{#if (eq filteredCategory 'others' )}} selected {{/if}}>其他</option>
               </select>
             </div>
           </form>
@@ -23,10 +24,10 @@
       </div>
       <div class="row">
         <div class="col-4 mr-auto">
-          <p class="mt-3 ml-5 font-weight-bold total-amount-text">總金額</h3>
+          <h1 class="fs-1 font-weight-bold total-amount-text">總金額： </h1>
         </div>
         <div class="col-auto">
-          <p class="total-amount-number">{{ totalAmount }}</p>
+          <h1 class="fs-1 font-weight-bold">{{ totalAmount }} 元</h1>
         </div>
       </div>
     </div>
@@ -38,7 +39,7 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-2 d-flex justify-content-center align-items-center category-icon">
-              <i class="{{this.iconClass}}"></i>
+              <i class="fas fa-{{this.category}} fa-2x"></i>
             </div>
             <div class="col-auto mr-auto">
               <p class="my-3 font-weight-bold record-name">{{ this.name }}</p>
@@ -54,9 +55,6 @@
                 id="confirm-form">
                 <button type="submit" class="btn btn-danger">刪除</button>
               </form>
-              {{!-- <button type="button" class="btn btn-danger icon-button delete-button" data-toggle="modal"
-                data-target="#recordModal" data-name="{{ this.name }}" data-id="{{ this._id }}"><i
-                  class="fas fa-trash-alt fa-lg"></i></button> --}}
             </div>
           </div>
         </li>
