@@ -9,7 +9,7 @@
 # 安裝與執行步驟 (installation and execution)
 
 * 將專案安裝至本機
-git clone https://github.com/weberyanglalala/expense-tracker.git
+git clone https://github.com/a1234567045/expense-tracker.git
 * 進入專案資料夾
 cd expense-tracker
 * npm 安裝環境需求套件
