@@ -1,12 +1,14 @@
 const express = require('express')
 const router = express.Router()
 const Record = require('../../models/Record')
-
+// 字串轉換函數
 const stringTransform = require('./stringTransform')
 
+//新增支出
 router.get('/new', (req, res) => {
   return res.render('new')
 })
+
 
 router.post('/', (req, res) => {
   const reqbody = req.body
@@ -15,7 +17,7 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
+//編輯支出
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
@@ -37,7 +39,7 @@ router.put('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
+//刪除支出
 router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)

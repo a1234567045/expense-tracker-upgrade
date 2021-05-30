@@ -5,6 +5,8 @@
       <h3 class="font-weight-bold m-0">新增支出</h3>
     </div>
   </div>
+
+  {{!-- form --}}
   <form action="/records" method="POST">
     <div class="row form-group mt-4">
       <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center">
@@ -28,12 +30,12 @@
         <label for="category" class="col-form-label font-weight-bold">類別：</label>
       </div>
       <div class="col-12 col-sm-9">
-        <select class="form-control"  name="category" id="category" required>
+        <select class="form-control" name="category" id="category" required>
           <option selected disabled>請選擇類別</option>
-          <option value="housewares">家居物業</option>
-          <option value="transportation">交通出行</option>
+          <option value="living">家居物業</option>
+          <option value="traffics">交通出行</option>
           <option value="entertainment">休閒娛樂</option>
-          <option value="consumption">餐飲食品</option>
+          <option value="meals">餐飲食品</option>
           <option value="others">其他</option>
         </select>
       </div>
@@ -55,12 +57,3 @@
     </div>
   </form>
 </div>
-
-
-{{!-- <form action="/records" method="POST">
-  <input type="text" placeholder="name" id="name" name="name">
-  <input type="text" placeholder="date" id="date" name="date">
-  <input type="text" placeholder="category" id="category" name="category">
-  <input type="text" placeholder="amount" id="amount" name="amount">
-  <button type="submit">Create</button>
-</form> --}}
