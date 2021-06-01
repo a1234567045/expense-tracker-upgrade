@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Record = require('../../models/Record')
+const Record = require('../../models/record')
 // 字串轉換函數
 const stringTransform = require('./stringTransform')
 // 分類

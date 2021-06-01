@@ -1,6 +1,6 @@
 require('../../config/mongoose')
 // 載入資料
-const Record = require('../Record') 
+const Record = require('../record') 
 const recordList = require('./record.json')
 const db = require('../../config/mongoose')
 //連線成功
