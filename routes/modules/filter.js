@@ -5,10 +5,11 @@ const Record = require('../../models/record')
 const stringTransform = require('./stringTransform')
 // 分類
 router.get('/', (req, res) => {
+  const userId = req.user._id
   let totalAmount = 0
   let filteredCategory = req.query.filter
   if (filteredCategory === '') {
-    Record.find()
+    Record.find({userId})
       .lean()
       .sort({ name: 'asc' })
       .then((records) => {
