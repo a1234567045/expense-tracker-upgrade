@@ -38,4 +38,14 @@ function categoryToCh(category) {
   }
   return category
 }
-module.exports = { categoryToIcon, categoryToCh }
+function dateFormat(date) {
+  const year = String(date.getFullYear())
+  const month = String(date.getMonth() + 1)
+  let monthFormat = ''
+  if (month.length < 2) monthFormat = '0' + month
+  if (month.length === 2) monthFormat = month
+  const dateFormat = year + '-' + monthFormat
+  return dateFormat
+}
+
+module.exports = { categoryToIcon, categoryToCh, dateFormat }

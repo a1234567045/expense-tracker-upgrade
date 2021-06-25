@@ -9,15 +9,15 @@ router.get('/', (req, res) => {
   const userId = req.user._id
   let filteredCategory = ''
   let totalAmount = 0
-  Record.find({userId})
+  Record.find({ userId })
     .lean()
     .sort({ _id: 'asc' }) // 根據 _id 升冪排序
-    .then((records) => {
-      for (let i = 0; i < records.length; i++) {
-        totalAmount += Number(records[i].amount)
-        records[i].category = stringTransform.categoryToIcon(records[i].category)
+    .then((recordList) => {
+      for (let i = 0; i < recordList.length; i++) {
+        totalAmount += Number(recordList[i].amount)
+        recordList[i].category = stringTransform.categoryToIcon(recordList[i].category)
       }
-      res.render('index', { records, totalAmount, filteredCategory })
+      res.render('index', { recordList, totalAmount, filteredCategory })
     })
     .catch(error => console.error(error))
 })

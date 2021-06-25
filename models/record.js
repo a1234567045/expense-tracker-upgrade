@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const recordSchema = new Schema({
   name: { type: String, required: true },
   category: { type: String, required: true },
-  date: { type: String, required: true },
+  date: { type: Date, default: Date.now, required: true },
   amount: { type: Number, required: true },
   merchant: { type: String },
   userId: {  // 加入關聯設定

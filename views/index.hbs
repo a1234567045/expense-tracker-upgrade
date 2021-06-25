@@ -19,7 +19,17 @@
                 <option value="others" {{#if (eq filteredCategory 'others' )}} selected {{/if}}>其他</option>
               </select>
             </div>
+            <div class="col col-md-10 col-lg-8">
+              <div action="/" class="form-inline justify-content-center align-items-center">
+                <input type="date" name="startDate" class="form-control" {{#if startDate}}value="{{startDate}}" {{/if}}>
+                <div class="mx-3">至</div>
+                <input type="date" name="endDate" class="form-control" {{#if endDate}}value="{{endDate}}" {{/if}}>
+                <button type="submit" class="btn btn-outline-success mx-3">送出</button>
+                <button type="submit" class="btn btn-outline-secondary" name="allDate" value="true">清除</button>
+              </div>
+            </div>
           </form>
+          {{> message}}
         </div>
       </div>
       <div class="row">
@@ -35,7 +45,7 @@
 
   {{!-- main --}}
   <ul class="list-group" id="record-panel">
-    {{#each records}}
+    {{#each recordList}}
     <div class="row d-flex justify-content-center">
       <div class="col-10">
         <li class="list-group-item">
@@ -45,8 +55,8 @@
             </div>
             <div class="col-auto mr-auto">
               <p class="my-3 font-weight-bold record-name">{{ this.name }}</p>
-              <p class="my-3 font-weight-bold record-name">{{ this.date }}</p>
-              <p class="font-weight-bold record-amount">{{this.merchant}}</p>
+              <p class="my-3 font-weight-bold record-name">{{toString this.date }}</p>
+              <p class="font-weight-bold record-amount">商家：{{this.merchant}}</p>
             </div>
             <div class="col-auto d-flex align-items-center">
               <p class="font-weight-bold record-amount">{{this.amount}}</p>
