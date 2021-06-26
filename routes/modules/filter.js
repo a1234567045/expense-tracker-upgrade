@@ -37,7 +37,7 @@ router.get('/', checkDate, (req, res) => {
       }
       for (let i = 0; i < recordList.length; i++) {
         totalAmount += Number(recordList[i].amount)
-        recordList[i].category = stringTransform.categoryToIcon(records[i].category)
+        recordList[i].category = stringTransform.categoryToIcon(recordList[i].category)
       }
       res.render('index', { recordList, totalAmount, filteredCategory, startDate, endDate, errors })
     })
